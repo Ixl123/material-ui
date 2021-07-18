@@ -22,6 +22,10 @@ If you didn't find a suitable issue you can also follow [@MuiContrib](https://tw
 
 We also have a list of [good to take issues](https://github.com/mui-org/material-ui/issues?q=is:open+is:issue+label:"good+to+take"). This label is set when there has been already some discussion about the solution and it is clear in which direction to go. These issues are good for developers that want to reduce the chance of going down a rabbit hole.
 
+You can also work on any other issue you choose to.
+The "good first" and "good to take" issues are just issues where we have a clear picture about scope and timeline.
+Pull requests working on other issues or completely new problems may take a bit longer to review when they don't fit into our current development cycle.
+
 If you decide to fix an issue, please be sure to check the comment thread in case somebody is already working on a fix. If nobody is working on it at the moment, please leave a comment stating that you have started to work on it so other people don't accidentally duplicate your effort.
 
 If somebody claims an issue but doesn't follow up for more than a week, it's fine to take it over but you should still leave a comment.
@@ -89,7 +93,7 @@ Changes to the docs will hot reload the site.
 
 ### How to increase the chance of being accepted?
 
-CI runs a series of checks automatically when a Pull Request is opened. If you're not
+Continuous Integration (CI) runs a series of checks automatically when a Pull Request is opened. If you're not
 sure if your changes will pass, you can always open a Pull Request and the GitHub UI will display a summary of
 the results. If any of them fail, refer to [Checks and how to fix them](#checks-and-how-to-fix-them).
 
@@ -99,10 +103,10 @@ Make sure the following is true:
 - If a feature is being added:
   - If the result was already achievable with the core library, explain why this feature needs to be added to the core.
   - If this is a common use case, consider adding an example to the documentation.
-- When adding new features or modifying existing, please include tests to confirm the new behavior. You can read more about our test setup in our test [README](https://github.com/mui-org/material-ui/blob/HEAD/test/README.md).
+- When adding new features or modifying existing ones, please include tests to confirm the new behavior. You can read more about our test setup in our test [README](https://github.com/mui-org/material-ui/blob/HEAD/test/README.md).
 - If props were added or prop types were changed, the TypeScript declarations were updated.
 - When submitting a new component, please add it to the [lab](https://github.com/mui-org/material-ui/tree/HEAD/packages/material-ui-lab).
-- The branch is not behind its target.
+- The branch is not [behind its target branch](https://github.community/t/branch-10-commits-behind/2403).
 
 Because we will only merge a Pull Request for which all tests pass. The following items need to be true:
 
@@ -118,8 +122,10 @@ If you have missed a step, don't worry, the Continuous Integration will run a th
 #### Checks and how to fix them
 
 If any of the checks fails click on the _Details_
-link and review the logs of the build to find out why it failed. The following
-section gives an overview of what each check is responsible for.
+link and review the logs of the build to find out why it failed.
+For CircleCI you need to log in first.
+No further permissions are required to view the build logs.
+The following section gives an overview of what each check is responsible for.
 
 ##### ci/codesandbox
 
@@ -188,8 +194,8 @@ on _Details_ to find out more about them.
 
 ### Updating the component API documentation
 
-The component API in the component `propTypes` and under `docs/pages/api-docs` is auto-generated from the JSDOC in the TypeScript declarations.
-Be sure to update the documentation in the corresponding `.d.ts` files (e.g. `packages/material-ui/src/Button/Button.d.ts` for `<Button>`) and the run:
+The component API in the component `propTypes` and under `docs/pages/api-docs` is auto-generated from the [JSDoc](https://jsdoc.app/about-getting-started.html) in the TypeScript declarations.
+Be sure to update the documentation in the corresponding `.d.ts` files (e.g. `packages/material-ui/src/Button/Button.d.ts` for `<Button>`) and then run:
 
 ```sh
 $ yarn proptypes
@@ -205,10 +211,9 @@ Please follow the coding style of the project. Material-UI uses prettier and esl
 
 Finally, when you submit a Pull Request, they are run again by our continuous integration tools, but hopefully, your code is already clean!
 
-## How to add a new demo in the documentation?
+## How to add a new demo in the documentation
 
-You need to **create** a new file and **modify** two files.
-For example, let say you want to add new demos for buttons component, then you have to go through the following steps:
+If, for example, you want to add new demos for the button component, you have to take the following steps:
 
 #### 1. Add a new React component file under the related directory.
 
